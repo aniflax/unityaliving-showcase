@@ -13,6 +13,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DirectorRouteImport } from './routes/director'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as MediaIndexRouteImport } from './routes/media.index'
+import { Route as MediaSlugRouteImport } from './routes/media.$slug'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
+import { Route as UpcomingProjectsIndexRouteImport } from './routes/upcoming-projects.index'
+import { Route as UpcomingProjectsSlugRouteImport } from './routes/upcoming-projects.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +42,74 @@ const DirectorRoute = DirectorRouteImport.update({
   path: '/director',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaIndexRoute = MediaIndexRouteImport.update({
+  id: '/media/',
+  path: '/media/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaSlugRoute = MediaSlugRouteImport.update({
+  id: '/media/$slug',
+  path: '/media/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpcomingProjectsIndexRoute = UpcomingProjectsIndexRouteImport.update({
+  id: '/upcoming-projects/',
+  path: '/upcoming-projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpcomingProjectsSlugRoute = UpcomingProjectsSlugRouteImport.update({
+  id: '/upcoming-projects/$slug',
+  path: '/upcoming-projects/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/director': typeof DirectorRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/media/$slug': typeof MediaSlugRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/upcoming-projects/$slug': typeof UpcomingProjectsSlugRoute
+  '/media/': typeof MediaIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/upcoming-projects/': typeof UpcomingProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/director': typeof DirectorRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/media/$slug': typeof MediaSlugRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/upcoming-projects/$slug': typeof UpcomingProjectsSlugRoute
+  '/media': typeof MediaIndexRoute
+  '/projects': typeof ProjectsIndexRoute
+  '/upcoming-projects': typeof UpcomingProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +117,58 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/director': typeof DirectorRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/media/$slug': typeof MediaSlugRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
+  '/upcoming-projects/$slug': typeof UpcomingProjectsSlugRoute
+  '/media/': typeof MediaIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/upcoming-projects/': typeof UpcomingProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/director'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/director'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/media/$slug'
+    | '/projects/$slug'
+    | '/upcoming-projects/$slug'
+    | '/media/'
+    | '/projects/'
+    | '/upcoming-projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/director'
-  id: '__root__' | '/' | '/about' | '/contact' | '/director'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/director'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/media/$slug'
+    | '/projects/$slug'
+    | '/upcoming-projects/$slug'
+    | '/media'
+    | '/projects'
+    | '/upcoming-projects'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/director'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/media/$slug'
+    | '/projects/$slug'
+    | '/upcoming-projects/$slug'
+    | '/media/'
+    | '/projects/'
+    | '/upcoming-projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +176,14 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DirectorRoute: typeof DirectorRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  MediaSlugRoute: typeof MediaSlugRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+  UpcomingProjectsSlugRoute: typeof UpcomingProjectsSlugRoute
+  MediaIndexRoute: typeof MediaIndexRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+  UpcomingProjectsIndexRoute: typeof UpcomingProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +216,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DirectorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media/': {
+      id: '/media/'
+      path: '/media'
+      fullPath: '/media/'
+      preLoaderRoute: typeof MediaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media/$slug': {
+      id: '/media/$slug'
+      path: '/media/$slug'
+      fullPath: '/media/$slug'
+      preLoaderRoute: typeof MediaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upcoming-projects/': {
+      id: '/upcoming-projects/'
+      path: '/upcoming-projects'
+      fullPath: '/upcoming-projects/'
+      preLoaderRoute: typeof UpcomingProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upcoming-projects/$slug': {
+      id: '/upcoming-projects/$slug'
+      path: '/upcoming-projects/$slug'
+      fullPath: '/upcoming-projects/$slug'
+      preLoaderRoute: typeof UpcomingProjectsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +280,14 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DirectorRoute: DirectorRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
+  MediaSlugRoute: MediaSlugRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
+  UpcomingProjectsSlugRoute: UpcomingProjectsSlugRoute,
+  MediaIndexRoute: MediaIndexRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+  UpcomingProjectsIndexRoute: UpcomingProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
