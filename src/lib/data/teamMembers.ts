@@ -54,4 +54,4 @@ export const teamMemberEntities: StrapiEntity<TeamMember>[] = [
 
 export const teamMembers = collection(teamMemberEntities);
 export const teamMemberList = teamMemberEntities.map((e) => e.attributes);
-export const director = teamMemberList[0];
+export const director = teamMemberList[0]!;
