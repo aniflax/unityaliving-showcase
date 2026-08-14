@@ -12,7 +12,7 @@ export function ProjectCard({
   project: Project;
   className?: string;
   variant?: "default" | "compact";
-  basePath?: "/projects" | "/upcoming-projects";
+  basePath?: "/projects" | "/upcoming-projects" | undefined;
 }) {
   const to =
     basePath === "/upcoming-projects"
