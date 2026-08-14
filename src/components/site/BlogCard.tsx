@@ -9,9 +9,13 @@ export function formatDate(iso: string) {
   });
 }
 
-export function BlogCard({ post }: { post: BlogPost }) {
+export function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boolean }) {
   return (
-    <article className="group flex h-full flex-col">
+    <article
+      className={
+        featured ? "group grid items-center gap-10 md:grid-cols-2" : "group flex h-full flex-col"
+      }
+    >
       <Link
         to="/media/$slug"
         params={{ slug: post.slug }}
@@ -22,18 +26,19 @@ export function BlogCard({ post }: { post: BlogPost }) {
           alt={post.coverAlt}
           width={1600}
           height={1000}
-          loading="lazy"
+          loading={featured ? "eager" : "lazy"}
           decoding="async"
-          className="img-zoom aspect-[16/11] w-full object-cover"
+          className={`img-zoom w-full object-cover ${featured ? "aspect-[4/3]" : "aspect-[16/11]"}`}
         />
       </Link>
-      <div className="flex flex-1 flex-col pt-6">
+      <div className={featured ? "flex flex-col" : "flex flex-1 flex-col pt-6"}>
+
         <div className="flex items-center gap-3 text-[0.66rem] tracking-[0.16em] uppercase">
           <span className="text-gold">{post.category}</span>
           <span className="h-px w-4 bg-border" />
           <span className="text-muted-foreground">{formatDate(post.publishedAt)}</span>
         </div>
-        <h3 className="mt-4 font-display text-xl leading-snug">
+        <h3 className={`mt-4 font-display leading-snug ${featured ? "text-3xl md:text-4xl" : "text-xl"}`}>
           <Link
             to="/media/$slug"
             params={{ slug: post.slug }}
