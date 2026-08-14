@@ -8,11 +8,13 @@ export function ProjectGrid({
   columns = 3,
   variant = "compact",
   className,
+  basePath,
 }: {
   projects: Project[];
   columns?: 2 | 3 | 4;
   variant?: "default" | "compact";
   className?: string;
+  basePath?: "/projects" | "/upcoming-projects";
 }) {
   return (
     <RevealGroup
@@ -27,9 +29,10 @@ export function ProjectGrid({
     >
       {projects.map((project) => (
         <RevealItem key={project.slug} className="h-full">
-          <ProjectCard project={project} variant={variant} />
+          <ProjectCard project={project} variant={variant} basePath={basePath} />
         </RevealItem>
       ))}
     </RevealGroup>
   );
 }
+
