@@ -7,12 +7,22 @@ export function ProjectCard({
   project,
   className,
   variant = "default",
+  basePath,
 }: {
   project: Project;
   className?: string;
   variant?: "default" | "compact";
+  basePath?: "/projects" | "/upcoming-projects";
 }) {
-  const to = project.status === "upcoming" ? "/upcoming-projects/$slug" : "/projects/$slug";
+  const to =
+    basePath === "/upcoming-projects"
+      ? "/upcoming-projects/$slug"
+      : basePath === "/projects"
+        ? "/projects/$slug"
+        : project.status === "upcoming"
+          ? "/upcoming-projects/$slug"
+          : "/projects/$slug";
+
 
   return (
     <article className={cn("group flex h-full flex-col", className)}>
