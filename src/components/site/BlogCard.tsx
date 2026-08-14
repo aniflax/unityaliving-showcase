@@ -38,7 +38,7 @@ export function BlogCard({ post, featured = false }: { post: BlogPost; featured?
           <span className="h-px w-4 bg-border" />
           <span className="text-muted-foreground">{formatDate(post.publishedAt)}</span>
         </div>
-        <h3 className="mt-4 font-display text-xl leading-snug">
+        <h3 className={`mt-4 font-display leading-snug ${featured ? "text-3xl md:text-4xl" : "text-xl"}`}>
           <Link
             to="/media/$slug"
             params={{ slug: post.slug }}
