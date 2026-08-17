@@ -93,6 +93,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Unityaliving builds considered residences in Indore, Madhya Pradesh — where living finds its meaning.",
       },
       { property: "og:url", content: "https://unityaliving-showcase.vercel.app/" },
+      { property: "og:image", content: "https://unityaliving-showcase.vercel.app/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Unityaliving — Thoughtful Homes in Indore" },
       {
