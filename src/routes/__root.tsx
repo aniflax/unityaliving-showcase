@@ -86,10 +86,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Unityaliving" },
       { property: "og:site_name", content: "Unityaliving" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "Unityaliving — Thoughtful Homes in Indore" },
+      {
+        property: "og:description",
+        content:
+          "Unityaliving builds considered residences in Indore, Madhya Pradesh — where living finds its meaning.",
+      },
+      { property: "og:url", content: "https://unityaliving-showcase.vercel.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Unityaliving — Thoughtful Homes in Indore" },
+      {
+        name: "twitter:description",
+        content:
+          "Unityaliving builds considered residences in Indore, Madhya Pradesh — where living finds its meaning.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: "https://unityaliving-showcase.vercel.app/" },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
