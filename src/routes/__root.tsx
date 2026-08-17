@@ -95,6 +95,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:url", content: "https://unityaliving-showcase.vercel.app/" },
       { property: "og:image", content: "https://unityaliving-showcase.vercel.app/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Unityaliving — Thoughtful Homes in Indore" },
       {
